@@ -8,7 +8,7 @@ type TripSidebarProps = {
 
 export function TripSidebar({ trip, selectedDayId, onSelectDay }: TripSidebarProps) {
   return (
-    <aside className="flex h-full w-full flex-col gap-6 rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur xl:max-w-sm">
+    <aside className="flex max-h-[85vh] w-full flex-col gap-6 overflow-hidden rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur lg:h-full lg:max-h-none xl:max-w-sm">
       <div className="space-y-3">
         <p className="text-sm font-medium text-sky-600">tripcanvas</p>
         <div>

@@ -25,29 +25,28 @@ export function AppShell({ trip }: AppShellProps) {
 
   return (
     <div className="mx-auto grid min-h-screen w-full max-w-[1600px] gap-6 px-4 py-6 pb-24 lg:grid-cols-[340px_minmax(0,1fr)] lg:pb-6 xl:px-6">
-      
+
       {/* Mobile Backdrop */}
       {isMobileDrawerOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-40 bg-slate-900/20 backdrop-blur-sm lg:hidden"
           onClick={() => setIsMobileDrawerOpen(false)}
         />
       )}
 
       {/* Sidebar Wrapper: Fixed Drawer on Mobile / Static Grid Item on Desktop */}
-      <div 
-        className={`fixed inset-x-0 bottom-0 z-50 transition-transform duration-300 ease-in-out lg:static lg:translate-y-0 ${
-          isMobileDrawerOpen ? "translate-y-0" : "translate-y-full"
-        }`}
+      <div
+        className={`fixed inset-x-0 top-2 z-50 transition-transform duration-300 ease-in-out lg:static lg:translate-y-0 ${isMobileDrawerOpen ? "translate-y-0" : "translate-y-full"
+          }`}
       >
         <div className="h-full p-4 lg:p-0">
-          <TripSidebar 
-            trip={trip} 
-            selectedDayId={selectedDay.id} 
+          <TripSidebar
+            trip={trip}
+            selectedDayId={selectedDay.id}
             onSelectDay={(id) => {
               setSelectedDayId(id);
               setIsMobileDrawerOpen(false);
-            }} 
+            }}
           />
         </div>
       </div>
@@ -72,7 +71,7 @@ export function AppShell({ trip }: AppShellProps) {
       </main>
 
       {/* Floating Action Button for Mobile */}
-      <button 
+      <button
         onClick={() => setIsMobileDrawerOpen(true)}
         className="fixed bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2 rounded-full bg-slate-900 px-6 py-3.5 text-sm font-medium text-white shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 lg:hidden"
       >

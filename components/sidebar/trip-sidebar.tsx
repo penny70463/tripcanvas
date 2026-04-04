@@ -8,7 +8,7 @@ type TripSidebarProps = {
 
 export function TripSidebar({ trip, selectedDayId, onSelectDay }: TripSidebarProps) {
   return (
-    <aside className="flex max-h-[85vh] w-full flex-col gap-6 overflow-hidden rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur lg:h-full lg:max-h-none xl:max-w-sm">
+    <aside className="flex max-h-[94vh] w-full flex-col gap-6 overflow-hidden rounded-[28px] border border-white/70 bg-white/85 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur lg:h-full lg:max-h-none xl:max-w-sm">
       <div className="space-y-3">
         <p className="text-sm font-medium text-sky-600">tripcanvas</p>
         <div>
@@ -29,21 +29,20 @@ export function TripSidebar({ trip, selectedDayId, onSelectDay }: TripSidebarPro
         )}
       </section>
 
-      <section className="min-h-0 flex-1 overflow-hidden">
+      <section className="min-h-0 flex-1 flex flex-col overflow-hidden">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">每日行程</h3>
           <span className="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700">{trip.days.length} days</span>
         </div>
-        <div className="flex max-h-[55vh] flex-col gap-3 overflow-y-auto pr-1">
+        <div className="flex-1 flex flex-col gap-3 overflow-y-auto pr-1">
           {trip.days.map((day, index) => {
             const active = day.id === selectedDayId;
             return (
               <button
                 key={day.id}
                 onClick={() => onSelectDay(day.id)}
-                className={`rounded-2xl border p-4 text-left transition-all ${
-                  active ? "border-sky-200 bg-sky-50 shadow-sm" : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
-                }`}
+                className={`rounded-2xl border p-4 text-left transition-all ${active ? "border-sky-200 bg-sky-50 shadow-sm" : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
+                  }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>

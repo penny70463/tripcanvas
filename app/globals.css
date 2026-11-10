@@ -32,3 +32,8 @@ button {
 .leaflet-container {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.sakura-pin {
+  background: transparent;
+  border: none;
+}

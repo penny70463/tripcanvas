@@ -6,8 +6,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "tripcanvas",
-  description: "Reusable travel itinerary UI with map and sidebar.",
+  title: "2027 賞櫻六人七天",
+  description: "仙台、札幌、金澤、松山。日期已對上花期與台灣上班日。",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

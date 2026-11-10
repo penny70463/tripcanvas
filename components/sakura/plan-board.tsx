@@ -254,10 +254,7 @@ export function PlanBoard() {
         <section className="rounded-[28px] bg-white p-5 shadow-[0_24px_80px_rgba(15,23,42,0.06)] ring-1 ring-slate-200/80 sm:p-7">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h3 className="text-lg font-semibold text-slate-950">住宿與每天的路線</h3>
-              <p className="mt-1 max-w-xl text-sm leading-6 text-slate-600">
-                黑點是住宿。色線依實際走法繪製，不是兩點直線：走路和計程車沿道路，電車沿車站。機場和出城的路段不畫進來。
-              </p>
+              <h3 className="text-lg font-semibold text-slate-950">住宿與每日路線</h3>
             </div>
             <button type="button" onClick={() => setActiveDay(null)} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700">
               看全部

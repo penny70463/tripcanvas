@@ -38,7 +38,7 @@ const lineCache = new Map<string, [number, number][]>();
 
 function osrmProfile(mode: HopMode) {
   if (mode === "walk") return "foot";
-  if (mode === "taxi" || mode === "bus") return "driving";
+  if (mode === "taxi" || mode === "bus" || mode === "tram") return "driving";
   return null;
 }
 

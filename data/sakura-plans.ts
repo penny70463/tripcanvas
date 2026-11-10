@@ -715,10 +715,13 @@ export const sakuraPlans: SakuraPlan[] = [
         admission: "梅津寺海岸免費（伊予鐵高濱線單程 ¥360）；美術館常設展門票：一般 ¥400、65歲以上 ¥200、幼兒免費",
         body: "週二主行程提供老少皆宜的雙方案彈性選擇：【選項 A（極度推薦・浪漫海濱）】：自松山市站搭乘伊予鐵高濱線（約 18 分）直達臨海第一排的「梅津寺站」（日劇《東京愛情故事》完結篇手帕月台）。出站就是平坦的沙灘海岸，吹瀨戶內海海風、遠眺離島渡輪，旁邊有三津濱燒在地小吃，步調無比放鬆；【選項 B（近郊文藝）】：不想搭車者可留在市區步行造訪安藤忠雄設計的「坂上之雲美術館」，欣賞大師招牌清水模幾何斜坡建築與透光玻璃挑高。中午在附近午餐，約 14:30 回住宿午睡。這天不排副行程。",
         onMap: true,
+        mapNote: "梅津寺在松山西北海岸，伊予鐵高濱線 18 分。為避免地圖比例尺過大縮小市區細節，出城海邊路段不納入市區總圖。",
         steps: [
           { label: "住宿", lat: matsuyamaHome.lat, lng: matsuyamaHome.lng },
-          { label: "梅津寺海岸（或坂上之雲美術館）", lat: 33.8829, lng: 132.7094, hop: { mode: "tram", text: "伊予鐵高濱線直達 18 分（出站即是海灘）" } },
-          { label: "住宿", lat: matsuyamaHome.lat, lng: matsuyamaHome.lng, hop: { mode: "tram", text: "電車 18 分輕鬆回市站午睡" } },
+          { label: "松山市站", lat: 33.8401, lng: 132.7657, hop: { mode: "walk", text: "步行 5 分到松山市站" } },
+          { label: "梅津寺站・海岸", lat: 33.8829, lng: 132.7094, hop: { mode: "tram", text: "伊予鐵高濱線直達 18 分（出站即是海灘）", onMap: false } },
+          { label: "松山市站", lat: 33.8401, lng: 132.7657, hop: { mode: "tram", text: "電車 18 分返回松山市站", onMap: false } },
+          { label: "住宿", lat: matsuyamaHome.lat, lng: matsuyamaHome.lng, hop: { mode: "walk", text: "步行 5 分回住宿午睡" } },
         ],
       },
       {

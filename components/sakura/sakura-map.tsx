@@ -38,18 +38,8 @@ const lineCache = new Map<string, [number, number][]>();
 
 function osrmProfile(mode: HopMode) {
   if (mode === "walk") return "foot";
-  if (mode === "taxi" || mode === "bus" || mode === "tram") return "driving";
+  if (mode === "taxi" || mode === "bus" || mode === "tram" || mode === "subway") return "driving";
   return null;
-}
-
-function meters([lat1, lng1]: [number, number], [lat2, lng2]: [number, number]) {
-  const r = 6371000;
-  const p1 = (lat1 * Math.PI) / 180;
-  const p2 = (lat2 * Math.PI) / 180;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dLng / 2) ** 2;
-  return 2 * r * Math.asin(Math.sqrt(h));
 }
 
 async function legLine(leg: MapLeg): Promise<[number, number][]> {
@@ -65,13 +55,7 @@ async function legLine(leg: MapLeg): Promise<[number, number][]> {
   const data = (await response.json()) as { routes?: { distance?: number; geometry?: { coordinates?: [number, number][] } }[] };
   const route = data.routes?.[0];
   const coordinates = route?.geometry?.coordinates;
-  if (!coordinates?.length || route?.distance == null) return anchors;
-  const endToEnd = meters(anchors[0], anchors[anchors.length - 1]);
-  // 繞路超過兩點直線 2.2 倍，是點位吸進河岸或商場沒有人行道。改畫 via 的轉角。
-  if (route.distance > endToEnd * 2.2) {
-    lineCache.set(key, anchors);
-    return anchors;
-  }
+  if (!coordinates?.length) return anchors;
   const line = coordinates.map(([lng, lat]) => [lat, lng] as [number, number]);
   lineCache.set(key, line);
   return line;
